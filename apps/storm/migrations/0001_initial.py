@@ -53,8 +53,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=20, verbose_name='文章大分类')),
                 ('slug', models.SlugField(unique=True)),
-                ('description', models.TextField(default='StormSha的个人网站，记录生活的瞬间，分享学习的心得，感悟生活，留住感动，静静寻觅生活的美好', help_text='用来作为SEO中description,长度参考SEO标准', max_length=240, verbose_name='描述')),
-                ('keywords', models.TextField(default='StormSha,静觅,网络,IT,技术,博客,Python', help_text='用来作为SEO中keywords,长度参考SEO标准', max_length=240, verbose_name='关键字')),
+                ('description', models.TextField(default='Alittlecode的个人网站，记录生活的瞬间，分享学习的心得，感悟生活，留住感动，静静寻觅生活的美好', help_text='用来作为SEO中description,长度参考SEO标准', max_length=240, verbose_name='描述')),
+                ('keywords', models.TextField(default='Alittlecode,追寻,网络,IT,技术,博客,Python', help_text='用来作为SEO中keywords,长度参考SEO标准', max_length=240, verbose_name='关键字')),
             ],
             options={
                 'verbose_name': '大分类',

@@ -749,7 +749,7 @@ CREATE TABLE `storm_bigcategory`  (
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `slug` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `description` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `keywords` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'StormSha,静觅,网络,IT,技术,博客,Python',
+  `keywords` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'Alittlecode,追寻,网络,IT,技术,博客,Python',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `slug`(`slug`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;

@@ -1,6 +1,6 @@
 ﻿{% extends 'base.html' %}
 {% load blog_tags %}
-{% block title %}静觅丨赞助作者{% endblock title %}
+{% block title %}追寻丨赞助作者{% endblock title %}
 
 {% block description %}
     <meta name="description" content="{% get_title category as bigcategory %}{{ bigcategory.description }}"/>
@@ -16,7 +16,7 @@
 	
 		<header class="pageheader clearfix">
 			<h1 class="pull-left">
-				<a href="https://cuiqingcai.com/donate">赞助作者</a>
+				<a href="">赞助作者</a>
 			</h1>
 			<div class="pull-right"><!-- 百度分享 -->
 	            <span class="action action-share bdsharebuttonbox">
@@ -55,7 +55,8 @@
                 <p style="text-align: center;">
                     <div style="width: 310px; margin: 10px auto 0px; background-color: #03cab1; color: #ffffff; height: 40px; border: none; font-family: 'Microsoft Yahei'; font-size: 16px;text-align:center;line-height:40px;">stormsha@foxmail.com</div>
                 </p>
-                <form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="post" name="form1" accept-charset="gb2312" onSubmit="document.charset='gb2312';" style="margin-top: -100px;">
+{#                <form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="post" name="form1" accept-charset="gb2312" onSubmit="document.charset='gb2312';" style="margin-top: -100px;">#}
+                <form action="" method="post" name="form1" accept-charset="gb2312" onSubmit="document.charset='gb2312';" style="margin-top: -100px;">
                     <input name="optEmail" value="cqc@cuiqingcai.com" type="hidden"/>
                     <input name="payAmount" type="hidden" value="10"/>
                     <input name="title" type="hidden" value="博客赞助" />
