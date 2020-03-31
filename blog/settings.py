@@ -16,7 +16,6 @@ import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -39,11 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.humanize',  # 添加人性化过滤器
-    'storm',    # 博客应用
-    'user',     # 自定义用户应用
+    'storm',  # 博客应用
+    'user',  # 自定义用户应用
     'comment',  # 评论
     'haystack',  # 全文搜索应用 这个要放在其他应用之前
-    'rest_framework',   # API
+    'rest_framework',  # API
 ]
 
 MIDDLEWARE = [
@@ -78,7 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blog.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 # 添加 apps 目录
@@ -99,7 +97,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -117,7 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -137,12 +133,14 @@ USE_TZ = False
 
 # 静态文件收集
 STATIC_URL = '/static/'
+# 收集静态文件
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
 # 媒体文件收集
-MEDIA_URL = "/media/"   # 媒体文件别名(相对路径) 和 绝对路径
+MEDIA_URL = "/media/"  # 媒体文件别名(相对路径) 和 绝对路径
 MEDIA_ROOT = (
     os.path.join(BASE_DIR, 'media')
 )
