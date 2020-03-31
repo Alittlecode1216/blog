@@ -24,7 +24,8 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
-static_collected
+static_collected/
+whoosh_index/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
