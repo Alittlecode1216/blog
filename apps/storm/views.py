@@ -1,7 +1,3 @@
-# ---------------------------
-__author__ = 'stormsha'
-__date__ = '2019/3/15 20:31'
-# ---------------------------
 import markdown
 import time
 from django.views import generic
@@ -165,7 +161,7 @@ class IndexView(generic.ListView):
             # 如果最左边的页码号比第 2 页页码号还大，
             # 说明最左边的页码号和第 1 页的页码号之间还有其它页码，因此需要显示省略号，通过 left_has_more 来指示。
             if left[0] > 2:
-                left_has_more=True
+                left_has_more = True
 
             # 如果最左边的页码号比第 1 页的页码号大，说明当前页左边的连续页码号中不包含第一页的页码，
             # 所以需要显示第一页的页码号，通过 first 来指示
@@ -179,7 +175,7 @@ class IndexView(generic.ListView):
 
             # 是否需要显示最后一页和最后一页前的省略号
             if right[-1] < total_pages - 1:
-                right_has_more=True
+                right_has_more = True
             if right[-1] < total_pages:
                 last = True
 
@@ -245,7 +241,7 @@ class DetailView(generic.DetailView):
 
 
 def MessageView(request):
-    return render(request, 'message.html', {'category':'message'})
+    return render(request, 'message.html', {'category': 'message'})
 
 
 def LinkView(request):
@@ -257,19 +253,19 @@ def AboutView(request):
 
 
 def DonateView(request):
-    return render(request, 'donate.html', {'category':'donate'})
+    return render(request, 'donate.html', {'category': 'donate'})
 
 
 def ExchangeView(request):
-    return render(request, 'exchange.html', {'category':'exchange'})
+    return render(request, 'exchange.html', {'category': 'exchange'})
 
 
 def ProjectView(request):
-    return render(request, 'project.html', {'category':'project'})
+    return render(request, 'project.html', {'category': 'project'})
 
 
 def QuestionView(request):
-    return render(request, 'question.html',{'category':'question'})
+    return render(request, 'question.html', {'category': 'question'})
 
 
 class DetailView(generic.DetailView):
@@ -340,4 +336,3 @@ class MySearchView(SearchView):
 
 def page_not_found(request):
     return render_to_response('404.html')
-

@@ -1,17 +1,11 @@
-# ---------------------------
-__author__='stormsha'
-__date__='2019/3/10 21:03'
-# ---------------------------
-
-
-
 from django.conf.urls import url
-from .views import (IndexView, DetailView, MessageView, AboutView, DonateView, ExchangeView, ProjectView, QuestionView, MySearchView, LoveView, LinkView)
+from .views import (IndexView, DetailView, MessageView, AboutView, DonateView, ExchangeView, ProjectView, QuestionView,
+                    MySearchView, LoveView, LinkView)
 
 urlpatterns = [
     # 首页
     url(r'^$', IndexView.as_view(template_name='index.html'), name='index'),  # 主页，自然排序
-    url(r'^link/$', LinkView, name='link'),     # 申请友情链接
+    url(r'^link/$', LinkView, name='link'),  # 申请友情链接
     url(r'^category/message/$', MessageView, name='message'),
     url(r'^category/about/$', AboutView, name='about'),
     url(r'^category/donate/$', DonateView, name='donate'),
@@ -31,4 +25,3 @@ urlpatterns = [
     # 喜欢
     url(r'^love/$', LoveView, name='love')
 ]
-
