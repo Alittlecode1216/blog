@@ -10,4 +10,3 @@ def settings_info(request):
         'site_description': settings.SITE_DESCRIPTION,
         'site_keywords': settings.SITE_KEYWORDS,
     }
-

@@ -28,7 +28,6 @@ def confirm(new_content, comment_post_ID, auser):
 @csrf_exempt
 @require_POST
 def AddcommentView(request):
-
     print('ssssss')
     if request.is_ajax():
         data = request.POST
@@ -91,10 +90,12 @@ def AddcommentView(request):
         else:
             the_article = Article.objects.get(id=comment_post_ID)
             if comment_parent == '0':
-                new_comment = ArticleComment(author=auser, content=new_content, belong=the_article, parent=None, rep_to=None)
+                new_comment = ArticleComment(author=auser, content=new_content, belong=the_article, parent=None,
+                                             rep_to=None)
             else:
                 parent = ArticleComment.objects.get(id=comment_parent)
-                new_comment = ArticleComment(author=auser, content=new_content, belong=the_article, parent=parent, rep_to=None)
+                new_comment = ArticleComment(author=auser, content=new_content, belong=the_article, parent=parent,
+                                             rep_to=None)
             new_comment.save()
 
         # 获取用什么，分登陆身份和游民身份
@@ -102,6 +103,8 @@ def AddcommentView(request):
         request.session['tid'] = new_comment.author.id
 
         # 返回当前评论，直接返回HTML内容刚给前端，使用JS在指定位置进行数据展示
-        return HttpResponse('''<li class="" id="comment-"><div class="c-avatar"><img alt='' src='https://cuiqingcai.com/avatar/.png' class='avatar avatar-54 photo avatar-default' height='54' width='54' /><div class="c-main" id="div-comment-">{0}<div class="c-meta"><span class="c-author">{1}</span></div></div></div>'''.format(new_content, author), content_type='text/html;charset="utf-8"')
+        return HttpResponse(
+            '''<li class="" id="comment-"><div class="c-avatar"><img alt='' src='https://cuiqingcai.com/avatar/.png' class='avatar avatar-54 photo avatar-default' height='54' width='54' /><div class="c-main" id="div-comment-">{0}<div class="c-meta"><span class="c-author">{1}</span></div></div></div>'''.format(
+                new_content, author), content_type='text/html;charset="utf-8"')
 
     return HttpResponse('参数错误', content_type='text/html;charset="utf-8"')

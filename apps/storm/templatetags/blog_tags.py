@@ -1,7 +1,3 @@
-# ---------------------------
-__author__ = 'stormsha'
-__date__ = '2019/3/15 20:31'
-# ---------------------------
 
 # 创建了新的tags标签文件后必须重启服务器
 
@@ -203,4 +199,3 @@ def my_highlight(text, q):
         except:
             pass
     return text
-

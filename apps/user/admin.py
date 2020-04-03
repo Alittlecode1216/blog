@@ -5,5 +5,4 @@ from .models import *
 # Register your models here.
 
 class OuserAdmin(Ouser):
-
-    list_display = ('link', )
+    list_display = ('link',)

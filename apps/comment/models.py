@@ -18,7 +18,8 @@ class Comment(models.Model):
     author = models.ForeignKey(CommentUser, related_name='%(class)s_related', verbose_name='评论人')
     create_date = models.DateTimeField('创建时间', auto_now_add=True)
     content = models.TextField('评论内容')
-    parent = models.ForeignKey('self', verbose_name='父评论', related_name='%(class)s_child_comments', blank=True, null=True)
+    parent = models.ForeignKey('self', verbose_name='父评论', related_name='%(class)s_child_comments', blank=True,
+                               null=True)
     rep_to = models.ForeignKey('self', verbose_name='回复', related_name='%(class)s_rep_comments', blank=True, null=True)
 
     class Meta:
@@ -65,4 +66,3 @@ class MessageComment(Comment):
         verbose_name = '给我留言'
         verbose_name_plural = verbose_name
         ordering = ['create_date']
-
