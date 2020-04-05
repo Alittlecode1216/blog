@@ -81,7 +81,7 @@ def AddcommentView(request):
         # 给我留言页面评论
         elif comment_post_ID == 'message':
             if comment_parent == '0':
-                new_comment = MessageComment(MessageComment, auser, new_content)
+                new_comment = MessageComment(author=auser, content=new_content, parent=None, rep_to=None)
             else:
                 parent = MessageComment.objects.get(id=comment_parent)
                 new_comment = MessageComment(author=auser, content=new_content, parent=parent, rep_to=None)
