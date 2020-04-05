@@ -26,6 +26,7 @@ wheels/
 MANIFEST
 static_collected/
 whoosh_index/
+*/migrations/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
