@@ -52,10 +52,10 @@ admin.site.site_title = '博客后台管理'
 
 @admin.register(Carousel)
 class CarouselAdmin(admin.ModelAdmin):
-    list_display = ('number', 'title', 'content', 'img_url', 'url')
+    list_display = ('id', 'number', 'title', 'content', 'img_url', 'url')
 
     # 设置需要添加<a>标签的字段
-    list_display_links = ('title',)
+    list_display_links = ('title', 'id')
 
 
 @admin.register(Keyword)

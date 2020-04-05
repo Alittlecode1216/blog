@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.shortcuts import reverse
+from slugify import slugify
 
 import markdown
 import emoji
@@ -92,18 +93,25 @@ class Article(models.Model):
     IMG_LINK = '/static/images/summary.jpg'
     author = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='作者')
     title = models.CharField(max_length=150, verbose_name='文章标题')
-    summary = models.TextField('文章摘要', max_length=230, default='文章摘要等同于网页description内容，请务必填写...')
+    summary = models.TextField('文章摘要', max_length=230, blank=True)
     body = models.TextField(verbose_name='文章内容')
-    img_link = models.CharField('图片地址', default=IMG_LINK, max_length=255)
+    # img_link = models.CharField('图片地址', default=IMG_LINK, max_length=255)
+    img_link = models.ImageField(upload_to='img', verbose_name='图片地址', default=IMG_LINK)
     create_date = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
     update_date = models.DateTimeField(verbose_name='修改时间', auto_now=True)
     views = models.IntegerField('阅览量', default=0)
     loves = models.IntegerField('喜爱量', default=0)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, blank=True)
     category = models.ForeignKey(Category, verbose_name='文章分类')
     tags = models.ManyToManyField(Tag, verbose_name='标签')
     keywords = models.ManyToManyField(Keyword, verbose_name='文章关键词',
                                       help_text='文章关键词，用来作为SEO中keywords，最好使用长尾词，3-4个足够')
+
+    # 设置slug为标题
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        self.summary = self.title
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = '文章'
