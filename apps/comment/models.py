@@ -65,4 +65,4 @@ class MessageComment(Comment):
     class Meta:
         verbose_name = '给我留言'
         verbose_name_plural = verbose_name
-        ordering = ['create_date']
+        ordering = ['-create_date']
