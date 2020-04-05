@@ -242,10 +242,10 @@
         <!--目前登录功能只有注册登录其它没必要没做-->
         <div class="pull-right">
             {% if request.session.username|default:'' == '' %}
-                    <i class="fa fa-power-off"></i>
-                    <a href="{% url 'accounts:login' %}?next={{ request.path }}">登录</a>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <i class="fa fa-user-plus"></i>
-                    <a href="{% url 'accounts:register' %}?next={{ request.path }}">注册</a>
+{#                    <i class="fa fa-power-off"></i>#}
+{#                    <a href="{% url 'accounts:login' %}?next={{ request.path }}">登录</a>#}
+{#            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <i class="fa fa-user-plus"></i>#}
+{#                    <a href="{% url 'accounts:register' %}?next={{ request.path }}">注册</a>#}
             {% else %}
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user"></i>
                     <a href="/">投稿</a>
