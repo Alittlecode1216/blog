@@ -3,9 +3,8 @@ from .models import Ouser
 
 
 # Register your models here.
-
-class OuserAdmin(Ouser):
+@admin.register(Ouser)
+class OuserAdmin(admin.ModelAdmin):
     list_display = ('link', 'username', 'date_joined')
 
-
-admin.site.register(Ouser)
+    list_display_links = ('username',)
