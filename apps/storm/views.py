@@ -10,6 +10,7 @@ from .models import Article, BigCategory, Category, Tag
 from markdown.extensions.toc import TocExtension  # 锚点的拓展
 from haystack.generic_views import SearchView  # 导入搜索视图
 from haystack.query import SearchQuerySet
+from storm.tasks import word_cloud_handle
 
 
 # Create your views here.
@@ -59,7 +60,7 @@ class IndexView(generic.ListView):
             self.big_slug = BigCategory.objects.filter(category__article__tags=tags)
             self.big_slug = self.big_slug[0].slug
             queryset = queryset.filter(tags=tags)
-
+        word_cloud_handle.delay()
         return queryset
 
     def get_context_data(self, **kwargs):
