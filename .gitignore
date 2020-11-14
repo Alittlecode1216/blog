@@ -112,3 +112,18 @@ venv.bak/
 *.css linguist-language=Python
 
 *.html linguist-language=Python
+
+
+/.idea/
+/static/
+media/*
+*.pyc
+log/
+*/migrations/
+*.mo
+__pycache__/
+build/*
+.DS_Store
+
+/venv/
+/.vscode/
