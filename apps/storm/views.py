@@ -60,7 +60,7 @@ class IndexView(generic.ListView):
             self.big_slug = BigCategory.objects.filter(category__article__tags=tags)
             self.big_slug = self.big_slug[0].slug
             queryset = queryset.filter(tags=tags)
-        word_cloud_handle.delay()
+       # word_cloud_handle.delay()
         return queryset
 
     def get_context_data(self, **kwargs):
